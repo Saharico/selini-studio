@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { FiVolume2, FiVolumeX } from "react-icons/fi";
+import { FiPlay, FiVolume2, FiVolumeX } from "react-icons/fi";
 
 type Props = {
   src: string;
@@ -12,6 +12,7 @@ type Props = {
 export default function LocalVideo({ src, title, buttonClassName }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
+  const [playing, setPlaying] = useState(true);
 
   const toggleMute = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -21,6 +22,18 @@ export default function LocalVideo({ src, title, buttonClassName }: Props) {
     const next = !muted;
     video.muted = next;
     setMuted(next);
+  };
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setPlaying(true);
+    } else {
+      video.pause();
+      setPlaying(false);
+    }
   };
 
   return (
@@ -34,8 +47,22 @@ export default function LocalVideo({ src, title, buttonClassName }: Props) {
         playsInline
         preload="auto"
         aria-label={title}
-        className="absolute inset-0 h-full w-full object-cover"
+        onClick={togglePlay}
+        data-cursor
+        className="absolute inset-0 h-full w-full cursor-pointer object-cover"
       />
+
+      <div
+        aria-hidden
+        className={`pointer-events-none absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+          playing ? "opacity-0" : "opacity-100"
+        }`}
+      >
+        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-black/50 text-fg backdrop-blur-sm">
+          <FiPlay className="ml-1" size={20} />
+        </span>
+      </div>
+
       <button
         type="button"
         onClick={toggleMute}
