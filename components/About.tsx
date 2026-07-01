@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { aboutVideo, bio, profile } from "@/lib/data";
-import VimeoBackground from "./VimeoBackground";
+import LocalVideo from "./LocalVideo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -25,11 +25,7 @@ export default function About() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative aspect-[3/4] w-full max-w-md overflow-hidden rounded-[2px] bg-bg-soft"
           >
-            <VimeoBackground
-              vimeoId={aboutVideo.vimeoId}
-              hash={aboutVideo.hash}
-              title={`${profile.name} — Reel`}
-            />
+            <LocalVideo src={aboutVideo.src} title={`${profile.name} — Reel`} />
 
             <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/60 to-transparent" />
 

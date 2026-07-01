@@ -12,12 +12,11 @@ export const profile = {
 };
 
 export const aboutVideo = {
-  vimeoId: "1206149502",
-  hash: "be2ceeb3d2",
+  src: "/videos/about.mov",
 };
 
 export const closingVideo = {
-  vimeoId: "1206168251",
+  src: "/videos/closing.mov",
 };
 
 export const bio = {
@@ -61,7 +60,7 @@ export type Project = {
   category: string;
   studio: string;
   description: string;
-  vimeoId: string;
+  videoSrc: string;
 };
 
 export const projects: Project[] = [
@@ -72,7 +71,7 @@ export const projects: Project[] = [
     studio: "Penguin Agency",
     description:
       "End-to-end AI-generated opening film for the Google Cloud summit in Johannesburg.",
-    vimeoId: "1205813934",
+    videoSrc: "/videos/google-cloud-johannesburg.mp4",
   },
   {
     slug: "google-cloud-london",
@@ -81,7 +80,7 @@ export const projects: Project[] = [
     studio: "Penguin Agency",
     description:
       "End-to-end AI-generated promo film for the Google Cloud summit in London.",
-    vimeoId: "1202561222",
+    videoSrc: "/videos/google-cloud-london.mp4",
   },
   {
     slug: "google-cloud-tel-aviv",
@@ -90,7 +89,7 @@ export const projects: Project[] = [
     studio: "Penguin Agency",
     description:
       "End-to-end AI-generated promo film for the Google Cloud summit in Tel Aviv.",
-    vimeoId: "1200193482",
+    videoSrc: "/videos/google-cloud-tel-aviv.mp4",
   },
   {
     slug: "quick-hit-slots",
@@ -99,7 +98,7 @@ export const projects: Project[] = [
     studio: "Screen Post Production",
     description:
       "Full 3D build of a casino city environment, with character compositing.",
-    vimeoId: "1145653136",
+    videoSrc: "/videos/quick-hit-slots.mp4",
   },
   {
     slug: "the-stronghold",
@@ -108,7 +107,7 @@ export const projects: Project[] = [
     studio: "Shortcut Playground",
     description:
       "Compositing and visual effects for a feature-length film.",
-    vimeoId: "1145650119",
+    videoSrc: "/videos/the-stronghold.mp4",
   },
 ];
 

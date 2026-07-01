@@ -5,7 +5,7 @@ import { FiArrowUpRight, FiInstagram, FiLinkedin } from "react-icons/fi";
 import { SiVimeo } from "react-icons/si";
 import { cursorEnter, cursorLeave } from "@/lib/cursor";
 import { closingVideo, profile } from "@/lib/data";
-import VimeoBackground from "./VimeoBackground";
+import LocalVideo from "./LocalVideo";
 
 const socials = [
   { label: "LinkedIn", href: profile.linkedin, Icon: FiLinkedin },
@@ -17,8 +17,8 @@ export default function Contact() {
   return (
     <section id="contact" className="relative py-28 md:py-40 border-t border-line overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <VimeoBackground
-          vimeoId={closingVideo.vimeoId}
+        <LocalVideo
+          src={closingVideo.src}
           title="Closing reel"
           buttonClassName="absolute top-6 right-6 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-fg/30 bg-black/40 text-fg backdrop-blur-sm transition-colors hover:border-accent hover:text-accent"
         />

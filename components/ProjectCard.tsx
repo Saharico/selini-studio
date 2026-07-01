@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { Project } from "@/lib/data";
-import VimeoBackground from "./VimeoBackground";
+import LocalVideo from "./LocalVideo";
 
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
@@ -39,7 +39,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
 
       <div className="md:col-span-5 order-1 md:order-2">
         <div className="relative aspect-video w-full overflow-hidden rounded-[2px] bg-bg-soft">
-          <VimeoBackground vimeoId={project.vimeoId} title={project.title} />
+          <LocalVideo src={project.videoSrc} title={project.title} />
         </div>
       </div>
     </motion.div>
