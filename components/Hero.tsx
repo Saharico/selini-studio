@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Marquee from "./Marquee";
 
 const lineVariants = {
   hidden: { y: "110%" },
@@ -62,25 +61,6 @@ export default function Hero() {
           final frame.
         </motion.p>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        className="mt-16 border-y border-line py-4"
-      >
-        <Marquee
-          items={[
-            "Film Direction",
-            "Cinematography",
-            "CGI",
-            "VFX",
-            "AI-Driven Workflows",
-            "Interactive Media",
-          ]}
-          className="font-display text-2xl md:text-4xl text-fg-muted"
-        />
-      </motion.div>
 
       <motion.div
         initial={{ opacity: 0 }}

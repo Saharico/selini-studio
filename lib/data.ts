@@ -34,24 +34,17 @@ export const skillTags = [
   "Art Direction",
   "Cinematography",
   "CGI",
-  "VFX Compositing",
+  "VFX",
   "AI-Driven Workflows",
-  "Prompt Engineering",
-  "3D Animation",
-  "Real-Time Rendering",
-  "Interactive Design",
-  "Visual Storytelling",
-  "Motion Design",
-  "Typography",
 ];
 
 export const tools = [
-  "Film Direction",
-  "Real-Time Render / Game Engines",
-  "3D & CGI Software",
-  "Adobe Creative Cloud",
+  "Adobe CC",
+  "DaVinci Resolve",
+  "Houdini",
+  "Unreal Engine",
+  "Blender",
   "AI Generative Tools",
-  "Editing & Color Grading",
 ];
 
 export type Project = {

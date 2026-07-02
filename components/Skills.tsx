@@ -4,10 +4,6 @@ import { motion } from "framer-motion";
 import Marquee from "./Marquee";
 import { skillTags, tools } from "@/lib/data";
 
-const half = Math.ceil(skillTags.length / 2);
-const rowOne = skillTags.slice(0, half);
-const rowTwo = skillTags.slice(half);
-
 export default function Skills() {
   return (
     <section id="skills" className="relative py-28 md:py-40 border-t border-line overflow-hidden">
@@ -23,34 +19,31 @@ export default function Skills() {
         </motion.span>
       </div>
 
-      <div className="space-y-4 md:space-y-6 py-6 border-y border-line">
-        <Marquee
-          items={rowOne}
-          className="font-display text-3xl md:text-6xl"
-        />
-        <Marquee
-          items={rowTwo}
-          reverse
-          className="font-display text-outline text-3xl md:text-6xl"
-        />
+      <div className="py-6 border-y border-line">
+        <Marquee items={skillTags} className="font-display text-3xl md:text-6xl" />
       </div>
 
       <div className="mx-auto max-w-7xl px-6 md:px-10 mt-20">
         <p className="font-sans uppercase tracking-[0.2em] text-sm text-fg-muted mb-8">
           Tools &amp; Software
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-3">
           {tools.map((tool, i) => (
-            <motion.div
+            <motion.span
               key={tool}
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="group border border-line rounded-[2px] px-5 py-6 font-sans text-sm md:text-base transition-colors hover:border-accent hover:text-accent"
+              className="flex items-baseline"
             >
-              {tool}
-            </motion.div>
+              <span className="font-display text-2xl md:text-3xl text-fg-muted transition-colors hover:text-accent">
+                {tool}
+              </span>
+              {i < tools.length - 1 && (
+                <span className="mx-3 font-display text-2xl md:text-3xl text-accent">/</span>
+              )}
+            </motion.span>
           ))}
         </div>
       </div>
