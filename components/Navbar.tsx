@@ -8,8 +8,8 @@ import { cursorEnter, cursorLeave } from "@/lib/cursor";
 import Crescent from "./Crescent";
 
 const links = [
-  { href: "/#work", label: "Work" },
   { href: "/#studio", label: "Studio" },
+  { href: "/#work", label: "Work" },
   { href: "/#services", label: "Services" },
   { href: "/director", label: "Director" },
 ];

@@ -39,7 +39,7 @@ export default function Hero() {
         <Crescent className="h-64 w-64 xl:h-80 xl:w-80 opacity-90" />
       </motion.div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-6 md:px-10">
+      <div className="relative w-full px-6 md:px-16 lg:px-24">
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -72,11 +72,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="mt-8 max-w-xl font-sans text-fg-muted text-lg"
+          className="mt-8 max-w-2xl font-sans text-fg-muted text-lg"
         >
-          {studio.name} is a full creative studio — development, direction,
-          production and post under one roof. We take the raw power of new
-          technology and shape it with film grammar and human craft.
+          A full creative studio — development, direction, production and post
+          under one roof. New technology, shaped by film grammar and human
+          craft.
         </motion.p>
 
         <motion.div
