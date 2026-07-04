@@ -1,12 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --color-bg: #0a0a0a;
-  --color-bg-soft: #111111;
-  --color-fg: #f2f0ea;
-  --color-fg-muted: #8f8b82;
-  --color-accent: #ff4d1c;
-  --color-line: #262624;
+  /* Selíni palette — earth & ink */
+  --color-bg: #ece8dc; /* Cream — primary ground */
+  --color-bg-soft: #e3decf; /* Deeper cream for cards */
+  --color-fg: #4a3a0f; /* Olive Ink — wordmark / text */
+  --color-fg-muted: #857a58; /* Softened olive */
+  --color-accent: #a86b45; /* Terracotta — signature, use sparingly */
+  --color-line: #d8d2c0;
+  --color-ink: #221e18; /* Warm Black — dark grounds */
+  --color-ink-soft: #2c2720;
+  --color-cream: #ece8dc;
+  --color-cream-muted: #b3ab97; /* Muted text on dark grounds */
+  --color-line-dark: #3a342b;
 }
 
 @theme inline {
@@ -16,8 +22,13 @@
   --color-fg-muted: var(--color-fg-muted);
   --color-accent: var(--color-accent);
   --color-line: var(--color-line);
-  --font-display: var(--font-anton);
-  --font-sans: var(--font-space-grotesk);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --color-cream: var(--color-cream);
+  --color-cream-muted: var(--color-cream-muted);
+  --color-line-dark: var(--color-line-dark);
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-quicksand);
 }
 
 * {
@@ -32,13 +43,21 @@ html {
 body {
   background: var(--color-bg);
   color: var(--color-fg);
-  font-family: var(--font-space-grotesk), Arial, Helvetica, sans-serif;
+  font-family: var(--font-quicksand), Arial, Helvetica, sans-serif;
   overflow-x: hidden;
 }
 
 ::selection {
   background: var(--color-accent);
-  color: #0a0a0a;
+  color: var(--color-cream);
+}
+
+/* Wordmark — Quicksand 700, all caps, wide letter-spacing */
+.wordmark {
+  font-family: var(--font-quicksand), sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.35em;
 }
 
 /* Grain overlay for cinematic texture */
@@ -47,7 +66,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 60;
-  opacity: 0.05;
+  opacity: 0.04;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
@@ -57,14 +76,13 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 999px;
   background: var(--color-accent);
   pointer-events: none;
   z-index: 70;
   transform: translate(-50%, -50%);
-  mix-blend-mode: difference;
   display: none;
 }
 
@@ -75,7 +93,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 999px;
-  border: 1px solid var(--color-fg);
+  border: 1px solid var(--color-accent);
   pointer-events: none;
   z-index: 70;
   transform: translate(-50%, -50%);
@@ -85,7 +103,7 @@ body {
   font-size: 11px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-fg);
+  color: var(--color-cream);
   text-align: center;
   transition: width 0.25s ease, height 0.25s ease, background-color 0.25s ease;
 }

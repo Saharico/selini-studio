@@ -5,7 +5,7 @@ type MarqueeProps = {
   separator?: string;
 };
 
-export default function Marquee({ items, reverse, className, separator = "✦" }: MarqueeProps) {
+export default function Marquee({ items, reverse, className, separator = "☾" }: MarqueeProps) {
   const content = (
     <>
       {items.map((item, i) => (

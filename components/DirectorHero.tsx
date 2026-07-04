@@ -1,8 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { studio } from "@/lib/data";
-import Crescent from "./Crescent";
+import { profile, studio } from "@/lib/data";
 
 const lineVariants = {
   hidden: { y: "150%" },
@@ -12,30 +11,20 @@ const lineVariants = {
   }),
 };
 
-export default function Hero() {
+export default function DirectorHero() {
   return (
     <section
       id="top"
-      className="relative isolate min-h-[100svh] flex flex-col justify-center overflow-hidden pt-40 pb-16"
+      className="relative isolate min-h-[90svh] flex flex-col justify-center overflow-hidden pt-40 pb-16"
     >
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(55% 45% at 72% 36%, rgba(168,107,69,0.14) 0%, rgba(236,232,220,0) 70%)",
+            "radial-gradient(60% 50% at 50% 40%, rgba(168,107,69,0.12) 0%, rgba(236,232,220,0) 70%)",
         }}
       />
-
-      <motion.div
-        aria-hidden
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.4, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="pointer-events-none absolute -z-10 hidden lg:block lg:right-[7%] top-[38%] -translate-y-1/2"
-      >
-        <Crescent className="h-64 w-64 xl:h-80 xl:w-80 opacity-90" />
-      </motion.div>
 
       <div className="relative mx-auto w-full max-w-7xl px-6 md:px-10">
         <motion.p
@@ -44,21 +33,21 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="wordmark text-sm text-accent mb-6"
         >
-          {studio.name} — {studio.descriptor}
+          {studio.name} — {profile.role}
         </motion.p>
 
         <h1 className="font-display leading-[1.02]">
-          {["The brand,", "by its own light."].map((line, i) => (
+          {["Sahar", "Machluf Ziv"].map((line, i) => (
             <span
               key={line}
-              className="block overflow-hidden text-[11vw] md:text-[7.5vw] tracking-tight pt-[0.1em] -mt-[0.1em] pb-[0.22em] -mb-[0.22em]"
+              className="block overflow-hidden text-[13vw] md:text-[8.5vw] tracking-tight pt-[0.1em] -mt-[0.1em] pb-[0.22em] -mb-[0.22em]"
             >
               <motion.span
                 custom={i}
                 initial="hidden"
                 animate="visible"
                 variants={lineVariants}
-                className={`block ${i === 1 ? "italic text-accent" : ""}`}
+                className={`block ${i === 1 ? "italic" : ""}`}
               >
                 {line}
               </motion.span>
@@ -72,18 +61,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="mt-8 max-w-xl font-sans text-fg-muted text-lg"
         >
-          A creative studio for films, ads and music videos. We take full
-          productions from first idea to final frame — calm, considered,
-          human.
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.1 }}
-          className="mt-12 font-sans text-sm uppercase tracking-[0.3em] text-fg-muted"
-        >
-          {studio.disciplines.join("  ·  ")}
+          Directing worlds across live action, CGI and AI — from concept to
+          final frame.
         </motion.p>
       </div>
 

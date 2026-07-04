@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { cursorEnter, cursorLeave } from "@/lib/cursor";
+import Crescent from "./Crescent";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#work", label: "Work" },
-  { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#studio", label: "Studio" },
+  { href: "/#services", label: "Services" },
+  { href: "/#work", label: "Work" },
+  { href: "/director", label: "Director" },
 ];
 
 export default function Navbar() {
@@ -33,41 +35,44 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 inset-x-0 z-50 mix-blend-difference transition-[padding] duration-300 ${
-          scrolled ? "py-4" : "py-6"
+        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "py-3 bg-bg/85 backdrop-blur-sm border-b border-line"
+            : "py-6 border-b border-transparent"
         }`}
       >
         <nav className="mx-auto max-w-7xl px-6 md:px-10 flex items-center justify-between text-fg">
-          <a
-            href="#top"
-            className="font-display text-2xl tracking-wide"
+          <Link
+            href="/"
+            className="flex items-center gap-3"
             onMouseEnter={() => cursorEnter()}
             onMouseLeave={cursorLeave}
           >
-            SMZ
-          </a>
+            <Crescent className="h-7 w-7" />
+            <span className="wordmark text-sm">Selini</span>
+          </Link>
           <ul className="hidden md:flex items-center gap-10 font-sans text-sm uppercase tracking-[0.15em]">
             {links.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
                   onMouseEnter={() => cursorEnter()}
                   onMouseLeave={cursorLeave}
-                  className="relative inline-block py-1 after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-fg after:transition-all after:duration-300 hover:after:w-full"
+                  className="relative inline-block py-1 after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-0 after:bg-accent after:transition-all after:duration-300 hover:after:w-full"
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
-          <a
-            href="#contact"
-            onMouseEnter={() => cursorEnter("Say Hi")}
+          <Link
+            href="/#contact"
+            onMouseEnter={() => cursorEnter("Talk")}
             onMouseLeave={cursorLeave}
-            className="hidden md:inline-flex font-sans text-sm uppercase tracking-[0.15em] border border-fg rounded-full px-5 py-2"
+            className="hidden md:inline-flex font-sans text-sm uppercase tracking-[0.15em] border border-fg/50 rounded-full px-5 py-2 transition-colors hover:border-accent hover:text-accent"
           >
-            Let&apos;s Talk
-          </a>
+            Start a Project
+          </Link>
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -88,19 +93,23 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-bg flex flex-col items-center justify-center gap-8 md:hidden"
           >
-            {links.map((l, i) => (
-              <motion.a
+            {[...links, { href: "/#contact", label: "Contact" }].map((l, i) => (
+              <motion.div
                 key={l.href}
-                href={l.href}
-                onClick={() => setOpen(false)}
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 + i * 0.06 }}
-                className="font-display text-4xl"
               >
-                {l.label}
-              </motion.a>
+                <Link
+                  href={l.href}
+                  onClick={() => setOpen(false)}
+                  className="font-display text-4xl"
+                >
+                  {l.label}
+                </Link>
+              </motion.div>
             ))}
+            <Crescent className="mt-6 h-10 w-10" />
           </motion.div>
         )}
       </AnimatePresence>

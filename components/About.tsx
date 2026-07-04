@@ -27,10 +27,10 @@ export default function About() {
           >
             <LocalVideo src={aboutVideo.src} title={`${profile.name} — Reel`} />
 
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/60 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ink/60 to-transparent" />
 
-            <div className="absolute top-5 left-5 flex items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-emerald-400">
-              <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="absolute top-5 left-5 flex items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-cream">
+              <span className="h-2 w-2 rounded-full bg-accent animate-pulse" />
               {profile.availability}
             </div>
           </motion.div>
@@ -42,9 +42,9 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="font-sans uppercase tracking-[0.3em] text-sm text-accent"
+            className="wordmark text-sm text-accent"
           >
-            About
+            The Director
           </motion.span>
 
           <motion.h2

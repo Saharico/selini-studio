@@ -15,7 +15,7 @@ export default function Work() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="font-sans uppercase tracking-[0.3em] text-sm text-accent"
+              className="wordmark text-sm text-accent"
             >
               Selected Work
             </motion.span>
@@ -26,11 +26,11 @@ export default function Work() {
               transition={{ duration: 0.7, delay: 0.1 }}
               className="font-display text-4xl md:text-6xl mt-4 leading-tight"
             >
-              Stories, rendered.
+              Light, given shape.
             </motion.h2>
           </div>
           <p className="font-sans text-fg-muted max-w-xs">
-            A selection of productions spanning live action, CGI and AI-assisted
+            A selection of productions spanning live action, CGI and AI-driven
             filmmaking.
           </p>
         </div>
