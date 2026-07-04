@@ -12,9 +12,9 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
+        <Work />
         <Philosophy />
         <Services />
-        <Work />
         <Contact />
       </main>
       <Footer />

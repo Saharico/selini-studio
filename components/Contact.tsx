@@ -51,9 +51,9 @@ export default function Contact() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="font-display text-4xl sm:text-6xl md:text-8xl leading-[1.02]"
         >
-          Films that feel
+          The brand,
           <br />
-          <span className="italic text-accent">inevitable.</span>
+          <span className="italic text-accent">by its own light.</span>
         </motion.h2>
 
         <motion.a

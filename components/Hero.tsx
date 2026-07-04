@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FiArrowDown } from "react-icons/fi";
+import { cursorEnter, cursorLeave } from "@/lib/cursor";
 import { studio } from "@/lib/data";
 import Crescent from "./Crescent";
 
@@ -44,14 +46,14 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="wordmark text-sm text-accent mb-6"
         >
-          {studio.name} — {studio.descriptor}
+          {studio.disciplines.join("  ·  ")}
         </motion.p>
 
         <h1 className="font-display leading-[1.02]">
-          {["The brand,", "by its own light."].map((line, i) => (
+          {["We turn ideas into films", "that feel inevitable."].map((line, i) => (
             <span
               key={line}
-              className="block overflow-hidden text-[11vw] md:text-[7.5vw] tracking-tight pt-[0.1em] -mt-[0.1em] pb-[0.22em] -mb-[0.22em]"
+              className="block overflow-hidden text-[8.5vw] md:text-[6.5vw] tracking-tight pt-[0.1em] -mt-[0.1em] pb-[0.22em] -mb-[0.22em]"
             >
               <motion.span
                 custom={i}
@@ -72,19 +74,35 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.9 }}
           className="mt-8 max-w-xl font-sans text-fg-muted text-lg"
         >
-          A creative studio for films, ads and music videos. We take full
-          productions from first idea to final frame — calm, considered,
-          human.
+          {studio.name} is a full creative studio — development, direction,
+          production and post under one roof. We take the raw power of new
+          technology and shape it with film grammar and human craft.
         </motion.p>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="mt-12 font-sans text-sm uppercase tracking-[0.3em] text-fg-muted"
+          className="mt-10 flex flex-wrap items-center gap-6"
         >
-          {studio.disciplines.join("  ·  ")}
-        </motion.p>
+          <a
+            href="#contact"
+            onMouseEnter={() => cursorEnter("Talk")}
+            onMouseLeave={cursorLeave}
+            className="rounded-full bg-accent px-8 py-3.5 font-sans text-sm uppercase tracking-[0.2em] text-cream transition-colors hover:bg-fg"
+          >
+            Start a Project
+          </a>
+          <a
+            href="#work"
+            onMouseEnter={() => cursorEnter("Watch")}
+            onMouseLeave={cursorLeave}
+            className="group inline-flex items-center gap-2 font-sans text-sm uppercase tracking-[0.2em] border-b border-fg/40 pb-1 transition-colors hover:border-accent hover:text-accent"
+          >
+            See the Work
+            <FiArrowDown className="transition-transform group-hover:translate-y-0.5" />
+          </a>
+        </motion.div>
       </div>
 
       <motion.div
