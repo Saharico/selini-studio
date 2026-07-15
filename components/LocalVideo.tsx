@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiPlay, FiVolume2, FiVolumeX } from "react-icons/fi";
 
 type Props = {
@@ -13,6 +13,25 @@ export default function LocalVideo({ src, title, buttonClassName }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [muted, setMuted] = useState(true);
   const [playing, setPlaying] = useState(true);
+  const [current, setCurrent] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  // The metadata often loads before hydration, so the loadedmetadata
+  // event can fire before React attaches its listener — read it directly.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video && Number.isFinite(video.duration) && video.duration > 0) {
+      setDuration(video.duration);
+    }
+  }, []);
+
+  const seek = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const video = videoRef.current;
+    if (!video) return;
+    const t = Number(e.target.value);
+    video.currentTime = t;
+    setCurrent(t);
+  };
 
   const toggleMute = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -48,6 +67,8 @@ export default function LocalVideo({ src, title, buttonClassName }: Props) {
         preload="auto"
         aria-label={title}
         onClick={togglePlay}
+        onTimeUpdate={(e) => setCurrent(e.currentTarget.currentTime)}
+        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
         data-cursor
         className="absolute inset-0 h-full w-full cursor-pointer object-cover"
       />
@@ -75,6 +96,23 @@ export default function LocalVideo({ src, title, buttonClassName }: Props) {
       >
         {muted ? <FiVolumeX size={16} /> : <FiVolume2 size={16} />}
       </button>
+
+      <input
+        type="range"
+        min={0}
+        max={duration || 0}
+        step={0.1}
+        value={current}
+        onChange={seek}
+        aria-label={`Seek in ${title}`}
+        data-cursor
+        className="video-seek absolute bottom-6 left-4 right-16 z-20 w-auto"
+        style={{
+          background: `linear-gradient(to right, var(--color-accent) ${
+            duration ? (current / duration) * 100 : 0
+          }%, rgba(236, 232, 220, 0.35) 0%)`,
+        }}
+      />
     </>
   );
 }

@@ -162,3 +162,36 @@ body {
     transform: translateY(140%);
   }
 }
+
+/* Video seek bar */
+.video-seek {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 999px;
+  outline: none;
+  opacity: 0.85;
+  transition: opacity 0.2s ease;
+}
+
+.video-seek:hover {
+  opacity: 1;
+}
+
+.video-seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  border: 2px solid var(--color-cream);
+}
+
+.video-seek::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  border: 2px solid var(--color-cream);
+}
