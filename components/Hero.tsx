@@ -40,11 +40,20 @@ export default function Hero() {
       </motion.div>
 
       <div className="relative w-full px-6 md:px-16 lg:px-24">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="mb-8 md:hidden"
+        >
+          <Crescent className="h-14 w-14" />
+        </motion.div>
+
         <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="wordmark text-sm text-accent mb-6"
+          className="wordmark text-sm text-accent mb-6 hidden md:block"
         >
           {studio.disciplines.join("  ·  ")}
         </motion.p>
@@ -53,7 +62,7 @@ export default function Hero() {
           {["We turn ideas into films", "that feel inevitable."].map((line, i) => (
             <span
               key={line}
-              className="block overflow-hidden text-[8.5vw] md:text-[6.5vw] tracking-tight pt-[0.1em] -mt-[0.1em] pb-[0.22em] -mb-[0.22em]"
+              className="block overflow-hidden text-[10.5vw] md:text-[6.5vw] tracking-tight pt-[0.1em] -mt-[0.1em] pb-[0.22em] -mb-[0.22em]"
             >
               <motion.span
                 custom={i}
@@ -83,7 +92,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}
-          className="mt-10 flex flex-wrap items-center gap-6"
+          className="mt-10 flex flex-col items-start gap-6 md:flex-row md:flex-wrap md:items-center"
         >
           <a
             href="#contact"
@@ -109,7 +118,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-fg-muted"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-fg-muted"
       >
         <span>Scroll</span>
         <span className="h-10 w-px bg-fg-muted/60 relative overflow-hidden">
