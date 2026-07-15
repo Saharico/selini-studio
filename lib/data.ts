@@ -147,6 +147,8 @@ export type Project = {
   studio: string;
   description: string;
   videoSrc: string;
+  // Optional second film — rendered side by side with the first one.
+  videoSrc2?: string;
 };
 
 export const projects: Project[] = [
@@ -194,5 +196,43 @@ export const projects: Project[] = [
     description:
       "Compositing and visual effects for a feature-length film.",
     videoSrc: "/videos/the-stronghold.mp4",
+  },
+  {
+    slug: "hp-barcelona",
+    title: "HP Barcelona",
+    category: "AI Filmmaking · Promo",
+    studio: "Penguin Agency",
+    description:
+      "End-to-end AI-generated promo film for the HP summit in Barcelona.",
+    videoSrc: "/videos/hp-barcelona.mp4",
+  },
+  {
+    slug: "harmony",
+    title: "Harmony",
+    category: "AI Filmmaking · Social Media",
+    studio: "Penguin Agency",
+    description:
+      "End-to-end AI-generated short video for social media.",
+    videoSrc: "/videos/harmony.mp4",
+  },
+  {
+    slug: "customer-stories",
+    title: "Customer Stories",
+    category: "Live Action · Editing",
+    studio: "",
+    description:
+      "Filming and editing customer videos for leading high-tech companies.",
+    videoSrc: "/videos/customer-stories-bitdam.mp4",
+    videoSrc2: "/videos/customer-stories-tapingo.mp4",
+  },
+  {
+    slug: "israeli-ministry-of-education",
+    title: "Israeli Ministry of Education",
+    category: "AI Filmmaking · Information Film",
+    studio: "",
+    description:
+      "End-to-end AI-generated information film for the Israeli Ministry of Education.",
+    videoSrc: "/videos/ministry-of-education-accessibility.mp4",
+    videoSrc2: "/videos/ministry-of-education-attendance.mp4",
   },
 ];

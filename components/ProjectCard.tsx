@@ -5,6 +5,8 @@ import type { Project } from "@/lib/data";
 import LocalVideo from "./LocalVideo";
 
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
+  const hasPair = Boolean(project.videoSrc2);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -17,7 +19,7 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         {String(index + 1).padStart(2, "0")}
       </div>
 
-      <div className="md:col-span-6 order-2 md:order-1">
+      <div className={`${hasPair ? "md:col-span-4" : "md:col-span-6"} order-2 md:order-1`}>
         <h3 className="font-display text-3xl md:text-5xl leading-tight">{project.title}</h3>
         {project.studio && (
           <p className="mt-3 font-sans text-sm uppercase tracking-[0.15em] text-fg-muted">
@@ -37,10 +39,21 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         </div>
       </div>
 
-      <div className="md:col-span-5 order-1 md:order-2">
-        <div className="relative aspect-video w-full overflow-hidden rounded-[2px] bg-bg-soft">
-          <LocalVideo src={project.videoSrc} title={project.title} />
-        </div>
+      <div className={`${hasPair ? "md:col-span-7" : "md:col-span-5"} order-1 md:order-2`}>
+        {project.videoSrc2 ? (
+          <div className="grid gap-3 sm:grid-cols-2">
+            <div className="relative aspect-video w-full overflow-hidden rounded-[2px] bg-bg-soft">
+              <LocalVideo src={project.videoSrc} title={project.title} />
+            </div>
+            <div className="relative aspect-video w-full overflow-hidden rounded-[2px] bg-bg-soft">
+              <LocalVideo src={project.videoSrc2} title={`${project.title} — film 02`} />
+            </div>
+          </div>
+        ) : (
+          <div className="relative aspect-video w-full overflow-hidden rounded-[2px] bg-bg-soft">
+            <LocalVideo src={project.videoSrc} title={project.title} />
+          </div>
+        )}
       </div>
     </motion.div>
   );
