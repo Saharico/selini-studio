@@ -39,33 +39,6 @@ export const philosophy = {
   ],
 };
 
-export type Service = {
-  title: string;
-  description: string;
-  tags: string[];
-};
-
-export const services: Service[] = [
-  {
-    title: "Films",
-    description:
-      "Brand films, opening films and documentary work — developed, directed and delivered as one continuous piece of craft.",
-    tags: ["Development", "Direction", "Production", "Post"],
-  },
-  {
-    title: "Ads",
-    description:
-      "Commercials that hold attention without raising their voice. Live action, CGI and AI-driven production, shaped by film grammar.",
-    tags: ["Concept", "Live Action", "CGI", "AI Production"],
-  },
-  {
-    title: "Music Videos",
-    description:
-      "Worlds built around a track — from treatment to final grade, with the visual language the music actually asks for.",
-    tags: ["Treatment", "Direction", "VFX", "Color"],
-  },
-];
-
 export const approach = {
   headline: "One studio, the whole production.",
   text: "Selíni takes full ownership — development, direction, production and post live under one roof. New technology runs through everything we make, but it never leads; the story does.",
@@ -143,7 +116,6 @@ export const tools = [
 export type Project = {
   slug: string;
   title: string;
-  category: string;
   studio: string;
   description: string;
   videoSrc: string;
@@ -155,7 +127,6 @@ export const projects: Project[] = [
   {
     slug: "google-cloud-johannesburg",
     title: "Google Cloud — Johannesburg",
-    category: "AI Filmmaking · Opening Film",
     studio: "Penguin Agency",
     description:
       "End-to-end AI-generated opening film for the Google Cloud summit in Johannesburg.",
@@ -164,7 +135,6 @@ export const projects: Project[] = [
   {
     slug: "google-cloud-london",
     title: "Google Cloud — London",
-    category: "AI Filmmaking · Promo",
     studio: "Penguin Agency",
     description:
       "End-to-end AI-generated promo film for the Google Cloud summit in London.",
@@ -173,7 +143,6 @@ export const projects: Project[] = [
   {
     slug: "google-cloud-tel-aviv",
     title: "Google Cloud — Tel Aviv",
-    category: "AI Filmmaking · Promo",
     studio: "Penguin Agency",
     description:
       "End-to-end AI-generated promo film for the Google Cloud summit in Tel Aviv.",
@@ -182,7 +151,6 @@ export const projects: Project[] = [
   {
     slug: "quick-hit-slots",
     title: "Quick Hit Slots",
-    category: "3D Environment · Compositing",
     studio: "Screen Post Production",
     description:
       "Full 3D build of a casino city environment, with character compositing.",
@@ -191,7 +159,6 @@ export const projects: Project[] = [
   {
     slug: "the-stronghold",
     title: "The Stronghold",
-    category: "Film VFX · Compositing",
     studio: "Shortcut Playground",
     description:
       "Compositing and visual effects for a feature-length film.",
@@ -200,7 +167,6 @@ export const projects: Project[] = [
   {
     slug: "hp-barcelona",
     title: "HP Barcelona",
-    category: "AI Filmmaking · Promo",
     studio: "Penguin Agency",
     description:
       "End-to-end AI-generated promo film for the HP summit in Barcelona.",
@@ -209,7 +175,6 @@ export const projects: Project[] = [
   {
     slug: "harmony",
     title: "Harmony",
-    category: "AI Filmmaking · Social Media",
     studio: "Penguin Agency",
     description:
       "End-to-end AI-generated short video for social media.",
@@ -218,7 +183,6 @@ export const projects: Project[] = [
   {
     slug: "customer-stories",
     title: "Customer Stories",
-    category: "Live Action · Editing",
     studio: "",
     description:
       "Filming and editing customer videos for leading high-tech companies.",
@@ -228,7 +192,6 @@ export const projects: Project[] = [
   {
     slug: "israeli-ministry-of-education",
     title: "Israeli Ministry of Education",
-    category: "AI Filmmaking · Information Film",
     studio: "",
     description:
       "End-to-end AI-generated information film for the Israeli Ministry of Education.",

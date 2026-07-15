@@ -27,16 +27,6 @@ export default function ProjectCard({ project, index }: { project: Project; inde
           </p>
         )}
         <p className="mt-4 max-w-md font-sans text-fg-muted">{project.description}</p>
-        <div className="mt-5 flex flex-wrap gap-2">
-          {project.category.split(" · ").map((tag) => (
-            <span
-              key={tag}
-              className="font-sans text-xs uppercase tracking-[0.1em] border border-line rounded-full px-3 py-1 text-fg-muted"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
       </div>
 
       <div className={`${hasPair ? "md:col-span-7" : "md:col-span-5"} order-1 md:order-2`}>

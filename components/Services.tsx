@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { approach, capabilities, services } from "@/lib/data";
+import { approach, capabilities } from "@/lib/data";
 import Crescent from "./Crescent";
 
 export default function Services() {
@@ -35,42 +35,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div>
-          {services.map((service, i) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="group grid md:grid-cols-12 gap-4 md:gap-10 items-baseline border-b border-line py-10 md:py-12"
-            >
-              <div className="md:col-span-1 font-sans text-fg-muted text-sm">
-                {String(i + 1).padStart(2, "0")}
-              </div>
-              <h3 className="md:col-span-4 font-display text-4xl md:text-6xl leading-tight transition-colors group-hover:text-accent">
-                {service.title}
-              </h3>
-              <div className="md:col-span-7">
-                <p className="max-w-lg font-sans text-fg-muted">
-                  {service.description}
-                </p>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="font-sans text-xs uppercase tracking-[0.1em] border border-line rounded-full px-3 py-1 text-fg-muted"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-20 grid md:grid-cols-12 gap-8 items-start">
+        <div className="grid md:grid-cols-12 gap-8 items-start">
           <div className="md:col-span-5 flex items-start gap-4">
             <Crescent variant="mark" className="mt-1 h-6 w-6 shrink-0 text-accent" />
             <motion.h3
